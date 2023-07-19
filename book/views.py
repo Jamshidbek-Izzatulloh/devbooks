@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializers import AuthorSerializer, BookCategorySerializer, BookSerializer
 from .models import AuthorModel, BookCategoryModel, BookModel
-
+from .permissions import IsOwnerPermission
+from rest_framework.permissions import IsAuthenticated
 # LC means List & Create
 # RUD means Retrieve, Update, & Destroy (Read, Update & Delete)
 
@@ -11,6 +12,7 @@ from .models import AuthorModel, BookCategoryModel, BookModel
 class LCBookView(generics.ListCreateAPIView):
     queryset = BookModel.objects.all()
     serializer_class = BookSerializer
+    
 
 class RUDBookView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BookModel.objects.all()
