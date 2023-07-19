@@ -20,6 +20,15 @@ class BookCategoryModel(models.Model):
     class Meta:
         db_table = 'book_category'
 
+class AuthorCategoryModel(models.Model):
+    name = models.CharField(max_length=65,default='')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'author_category'
+
 class BookModel(models.Model):
     author = models.ForeignKey(AuthorModel,on_delete=models.CASCADE)
     name = models.CharField(max_length=127,default='')
