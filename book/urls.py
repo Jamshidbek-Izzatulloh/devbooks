@@ -8,8 +8,8 @@ urlpatterns = [
     path('category/<pk>/', RUDBookCategoryView.as_view()),
     
     #Book API
-    path('', LCBookView.as_view()),
-    path('<pk>/', RUDBookView.as_view()),
+    path('books/', LCBookView.as_view()),
+    path('books/<pk>/', RUDBookView.as_view()),
 
     #Author API
     path('author/', LCAuthorView.as_view()),
